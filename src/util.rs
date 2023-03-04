@@ -1,6 +1,6 @@
-use glam::{Mat3, Quat, Vec3};
 
-use crate::prelude::Handedness;
+use bevy_math::{Vec3, Quat};
+
 
 pub(crate) trait Interpolate {
     fn interpolate(self, other: Self, t: f32) -> Self;
@@ -54,7 +54,8 @@ impl<T: Interpolate + Copy + std::fmt::Debug> ExpSmoothed<T> {
     }
 }
 
-pub fn look_at<H: Handedness>(forward: Vec3) -> Quat {
+/*
+pub fn look_at(forward: Vec3) -> Quat {
     forward
         .try_normalize()
         .and_then(|forward| {
@@ -68,3 +69,4 @@ pub fn look_at<H: Handedness>(forward: Vec3) -> Quat {
         })
         .unwrap_or_default()
 }
+*/

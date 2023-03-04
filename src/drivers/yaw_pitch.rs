@@ -1,10 +1,19 @@
-use std::marker::PhantomData;
+//use std::marker::PhantomData;
 
-use glam::{EulerRot, Quat};
+//use glam::{EulerRot, Quat};
 
+use bevy_math::{Quat, EulerRot, 
+    //Vec3
+};
+use bevy_transform::prelude::Transform;
+
+use crate::{rig::RigUpdateParams, driver::RigDriver};
+
+/*
 use crate::{
     driver::RigDriver, handedness::Handedness, rig::RigUpdateParams, transform::Transform,
 };
+*/
 
 /// Calculate camera rotation based on yaw and pitch angles.
 ///
@@ -76,17 +85,17 @@ impl YawPitch {
     }
 }
 
-impl<H: Handedness> RigDriver<H> for YawPitch {
-    fn update(&mut self, params: RigUpdateParams<H>) -> Transform<H> {
+impl RigDriver for YawPitch {
+    fn update(&mut self, params: RigUpdateParams) -> Transform {
         Transform {
-            position: params.parent.position,
+            translation: params.parent.translation,
             rotation: Quat::from_euler(
                 EulerRot::YXZ,
                 self.yaw_degrees.to_radians(),
                 self.pitch_degrees.to_radians(),
                 0.0,
             ),
-            phantom: PhantomData,
+            scale: Default::default(),
         }
     }
 }

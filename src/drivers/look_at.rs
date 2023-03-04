@@ -1,13 +1,17 @@
-use std::marker::PhantomData;
+//use std::marker::PhantomData;
 
-use glam::Vec3;
+//use glam::Vec3;
+use bevy_math::Vec3;
+use bevy_transform::prelude::Transform;
 
 use crate::{
     driver::RigDriver,
-    handedness::Handedness,
+    //handedness::Handedness,
     rig::RigUpdateParams,
-    transform::Transform,
-    util::{look_at, ExpSmoothed, ExpSmoothingParams},
+    //transform::Transform,
+    util::{
+        //look_at,
+         ExpSmoothed, ExpSmoothingParams},
 };
 
 /// Rotates the camera to point at a world-space position.
@@ -55,8 +59,8 @@ impl LookAt {
     }
 }
 
-impl<H: Handedness> RigDriver<H> for LookAt {
-    fn update(&mut self, params: RigUpdateParams<H>) -> Transform<H> {
+impl RigDriver for LookAt {
+    fn update(&mut self, params: RigUpdateParams) -> Transform {
         let target = self.smoothed_target.exp_smooth_towards(
             &self.target,
             ExpSmoothingParams {
@@ -66,12 +70,12 @@ impl<H: Handedness> RigDriver<H> for LookAt {
             },
         );
 
-        let rotation = look_at::<H>(target - params.parent.position);
+        let rotation = params.parent.looking_at(target, Vec3::Y).rotation;
 
         Transform {
-            position: params.parent.position,
+            translation: params.parent.translation,
             rotation,
-            phantom: PhantomData,
+            ..Default::default()
         }
     }
 }
