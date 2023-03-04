@@ -11,7 +11,9 @@ use crate::{
     //transform::Transform,
     util::{
         //look_at,
-         ExpSmoothed, ExpSmoothingParams},
+        ExpSmoothed,
+        ExpSmoothingParams,
+    },
 };
 
 /// Rotates the camera to point at a world-space position.

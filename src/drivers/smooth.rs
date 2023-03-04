@@ -1,7 +1,7 @@
 //use std::marker::PhantomData;
 
 //use glam::{Quat, Vec3};
-use bevy_math::{Vec3, Quat};
+use bevy_math::{Quat, Vec3};
 use bevy_transform::prelude::Transform;
 
 use crate::{

@@ -4,7 +4,7 @@
 use bevy_math::Quat;
 use bevy_transform::prelude::Transform;
 
-use crate::{rig::RigUpdateParams, driver::RigDriver};
+use crate::{driver::RigDriver, rig::RigUpdateParams};
 
 /*
 use crate::{

@@ -1,6 +1,4 @@
-
-use bevy_math::{Vec3, Quat};
-
+use bevy_math::{Quat, Vec3};
 
 pub(crate) trait Interpolate {
     fn interpolate(self, other: Self, t: f32) -> Self;

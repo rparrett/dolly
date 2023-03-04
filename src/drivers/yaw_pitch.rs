@@ -2,12 +2,14 @@
 
 //use glam::{EulerRot, Quat};
 
-use bevy_math::{Quat, EulerRot, 
+use bevy_math::{
+    EulerRot,
     //Vec3
+    Quat,
 };
 use bevy_transform::prelude::Transform;
 
-use crate::{rig::RigUpdateParams, driver::RigDriver};
+use crate::{driver::RigDriver, rig::RigUpdateParams};
 
 /*
 use crate::{

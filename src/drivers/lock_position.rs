@@ -3,9 +3,9 @@
 use bevy_transform::prelude::Transform;
 
 use crate::{
-    driver::RigDriver, 
-    //handedness::Handedness, 
-    rig::RigUpdateParams, 
+    driver::RigDriver,
+    //handedness::Handedness,
+    rig::RigUpdateParams,
     //transform::Transform,
 };
 

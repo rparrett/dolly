@@ -3,9 +3,7 @@ use bevy_transform::prelude::Transform;
 //use crate::{handedness::Handedness, rig::RigUpdateParams, transform::Transform};
 use crate::rig::RigUpdateParams;
 
-pub trait RigDriverTraits:
-    RigDriver + Sync + Send + std::any::Any + std::fmt::Debug
-{
+pub trait RigDriverTraits: RigDriver + Sync + Send + std::any::Any + std::fmt::Debug {
     /// Returns `self` as `&dyn Any`
     fn as_any(&self) -> &dyn std::any::Any;
 
