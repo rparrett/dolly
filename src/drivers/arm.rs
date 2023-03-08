@@ -30,7 +30,7 @@ impl RigDriver for Arm {
         Transform {
             translation: params.parent.translation + params.parent.rotation * self.offset,
             rotation: params.parent.rotation,
-            ..Default::default()
+            scale: Vec3::ONE,
         }
     }
 }

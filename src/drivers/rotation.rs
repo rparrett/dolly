@@ -1,7 +1,7 @@
 //use std::marker::PhantomData;
 
 //use glam::Quat;
-use bevy_math::Quat;
+use bevy_math::{Quat, Vec3};
 use bevy_transform::prelude::Transform;
 
 use crate::{driver::RigDriver, rig::RigUpdateParams};
@@ -29,7 +29,7 @@ impl RigDriver for Rotation {
         Transform {
             translation: params.parent.translation,
             rotation: self.rotation,
-            scale: Default::default(),
+            scale: Vec3::ONE,
         }
     }
 }

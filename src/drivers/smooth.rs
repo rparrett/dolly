@@ -104,7 +104,7 @@ impl RigDriver for Smooth {
         Transform {
             translation,
             rotation,
-            scale: Default::default(),
+            scale: Vec3::ONE,
         }
     }
 }

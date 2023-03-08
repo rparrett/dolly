@@ -35,7 +35,7 @@ impl RigDriver for Position {
         Transform {
             translation: self.position,
             rotation: params.parent.rotation,
-            scale: Default::default(),
+            scale: Vec3::ONE,
         }
     }
 }
