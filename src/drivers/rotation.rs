@@ -1,10 +1,16 @@
-use std::marker::PhantomData;
+//use std::marker::PhantomData;
 
-use glam::Quat;
+//use glam::Quat;
+use bevy_math::{Quat, Vec3};
+use bevy_transform::prelude::Transform;
 
+use crate::{driver::RigDriver, rig::RigUpdateParams};
+
+/*
 use crate::{
     driver::RigDriver, handedness::Handedness, rig::RigUpdateParams, transform::Transform,
 };
+*/
 
 /// Directly sets the rotation of the camera
 #[derive(Default, Debug)]
@@ -18,12 +24,12 @@ impl Rotation {
     }
 }
 
-impl<H: Handedness> RigDriver<H> for Rotation {
-    fn update(&mut self, params: RigUpdateParams<H>) -> Transform<H> {
+impl RigDriver for Rotation {
+    fn update(&mut self, params: RigUpdateParams) -> Transform {
         Transform {
-            position: params.parent.position,
+            translation: params.parent.translation,
             rotation: self.rotation,
-            phantom: PhantomData,
+            scale: Vec3::ONE,
         }
     }
 }
