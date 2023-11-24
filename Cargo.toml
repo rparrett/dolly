@@ -1,6 +1,6 @@
 [package]
 name = "dolly"
-version = "0.4.1"
+version = "0.4.2"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Composable camera rigs"
@@ -14,7 +14,7 @@ rust-version = "1.60"
 [dependencies]
 bevy_math = "0.12"
 bevy_transform = "0.12"
-#glam = { version = ">=0.21, <=0.23" }
+#glam = ">=0.21, <=0.24"
 
 [dev-dependencies]
 macroquad = "0.3"
