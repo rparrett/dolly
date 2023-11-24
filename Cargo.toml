@@ -17,4 +17,4 @@ bevy_transform = "0.12"
 #glam = ">=0.21, <=0.24"
 
 [dev-dependencies]
-macroquad = "0.3"
+#macroquad = "0.4.4"
